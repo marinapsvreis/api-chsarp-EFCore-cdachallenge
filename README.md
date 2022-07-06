@@ -7,7 +7,7 @@ Faça uma aplicação que contenha os seguintes serviços para consulta no banco
 ● Exclusão de Código Penal<br>
 ● Edição de Código Penal<br>
 ● Visualização do Código Penal pelo ID<br><br>
-● Listagem de Códigos Penais com paginação, filtro e ordenação por todos os campos (PENDENTE)<br><br>
+● Listagem de Códigos Penais com paginação, filtro e ordenação por todos os campos (PENDENTE FILTRAR POR MAIS CAMPOS, FILTRANDO APENAS POR NOME)<br><br>
 
 O Banco de Dados deverá seguir o seguinte modelo relacional:
 
@@ -17,7 +17,7 @@ Essenciais:<br>
 ● Uso de .netcore e WebApi;<br>
 ● Entity Framework;<br>
 ● Banco de Dados Relacional;<br>
-● Aplicar padrões de projetos e arquitetura de projetos em camadas; (FALTA APRENDER MELHOR SOBRE SERVICES)<br><br>
+● Aplicar padrões de projetos e arquitetura de projetos em camadas; (APRENDER MAIS SOBRE SERVICES E MAPPER)<br><br>
 Diferenciais:<br>
 ● JWT;<br>
 ● Documentação da API (Swagger); (FALTAM REFINAMENTOS)<br>
