@@ -1,12 +1,14 @@
 using API_DOTNET.Model;
 using API_DOTNET.Repository;
 using API_DOTNET.View;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API_DOTNET.Controllers
 {
   [ApiController]
   [Route("api/[controller]")]
+  [Authorize]
   public class StatusController : ControllerBase
   {
 

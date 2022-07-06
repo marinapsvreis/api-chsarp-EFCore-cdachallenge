@@ -1,10 +1,12 @@
 using API_DOTNET.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API_DOTNET.Controllers
 {
   [ApiController]
   [Route("api/[controller]")]
+  [Authorize]
   public class EnableCriminalCodeController : ControllerBase
   {
 
