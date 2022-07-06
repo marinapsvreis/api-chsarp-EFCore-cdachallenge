@@ -47,7 +47,7 @@ namespace API_DOTNET.Repository
       return await _context.SaveChangesAsync() > 0;
     }
 
-    public async Task<PagedBaseRequest> GetPagedAsync(CriminalCodeFilterDb request)
+    public async Task<PagedBaseResponse<CriminalCode>> GetPagedAsync(CriminalCodeFilterDb request)
     {
       var criminalCode = _context.CriminalCode.AsQueryable();
       if (!string.IsNullOrEmpty(request.Name))
