@@ -1,4 +1,5 @@
 using API_DOTNET.Data;
+using API_DOTNET.Filters;
 using API_DOTNET.Model;
 using API_DOTNET.Repository;
 using API_DOTNET.View;
@@ -44,32 +45,13 @@ namespace API_DOTNET.Controllers
       return criminalCodes.Any() ? Ok(listCriminalCodes) : NoContent();
     }
 
-    // Implementação da Paginação Pendente
-    // [HttpGet]
-    // public async Task<IActionResult> Get()
-    // {
-    //   var criminalCodes = await _repository.GetCriminalCodes();
-    //   List<CriminalCodeViewOutput> listCriminalCodes = new List<CriminalCodeViewOutput>();
-    //   foreach (CriminalCode criminalCode in criminalCodes)
-    //   {
-    //     CriminalCodeViewOutput criminalCodeViewOutput = new CriminalCodeViewOutput()
-    //     {
-    //       CriminalCodeId = criminalCode.CriminalCodeId,
-    //       Name = criminalCode.Name,
-    //       Description = criminalCode.Description,
-    //       Penalty = criminalCode.Penalty,
-    //       PrisionTime = criminalCode.PrisionTime,
-    //       StatusId = criminalCode.StatusId,
-    //       CreateDate = criminalCode.CreateDate,
-    //       UpdateDate = criminalCode.UpdateDate,
-    //       CreateUserId = criminalCode.CreateUserId,
-    //       UpdateUserId = criminalCode.UpdateUserId
-    //     };
-
-    //     listCriminalCodes.Add(criminalCodeViewOutput);
-    //   }
-    //   return criminalCodes.Any() ? Ok(listCriminalCodes) : NoContent();
-    // }
+    [HttpGet("/paged/")]
+    public async Task<ActionResult> GetPagedAsync([FromQuery] CriminalCodeFilterDb criminalCodeFilterDb)
+    {
+      var criminalCodePaged = await _repository.GetPagedAsync(criminalCodeFilterDb);
+      var result = new PagedBaseResponseOutput<CriminalCodeViewOutput>(criminalCodePaged.TotalRegisters, criminalCodePaged.Data);
+      return Ok(criminalCodePaged);
+    }
 
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById(int id)
