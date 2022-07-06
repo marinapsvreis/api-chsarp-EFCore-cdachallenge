@@ -24,6 +24,10 @@ namespace API_DOTNET.Controllers
       _authenticationService = authenticationService;
     }
 
+    /// <summary>
+    /// Login usuário
+    /// </summary>
+
     [SwaggerResponse(statusCode: 200, description: "Sucesso ao autenticar", Type = typeof(LoginViewInput))]
     [SwaggerResponse(statusCode: 400, description: "Campos obrigatórios", Type = typeof(ValidateFieldViewOutput))]
     [SwaggerResponse(statusCode: 500, description: "Erro interno", Type = typeof(GenericErrorView))]
@@ -50,6 +54,10 @@ namespace API_DOTNET.Controllers
 
       return Ok(userViewOutput);
     }
+
+    /// <summary>
+    /// Registro usuário
+    /// </summary>
 
     [SwaggerResponse(statusCode: 200, description: "Sucesso ao autenticar", Type = typeof(LoginViewInput))]
     [SwaggerResponse(statusCode: 400, description: "Campos obrigatórios", Type = typeof(ValidateFieldViewOutput))]

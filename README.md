@@ -20,4 +20,4 @@ Essenciais:<br>
 ● Aplicar padrões de projetos e arquitetura de projetos em camadas; (APRENDER MAIS SOBRE SERVICES E MAPPER)<br><br>
 Diferenciais:<br>
 ● JWT;<br>
-● Documentação da API (Swagger); (FALTAM REFINAMENTOS)<br>
+● Documentação da API (Swagger);<br>

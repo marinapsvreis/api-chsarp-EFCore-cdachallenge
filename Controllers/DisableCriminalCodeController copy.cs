@@ -15,6 +15,10 @@ namespace API_DOTNET.Controllers
       _repository = repository;
     }
 
+    /// <summary>
+    /// Alterando o Status do Criminal Code para Inativo
+    /// </summary>
+
     [HttpPut("{idCriminalCode}")]
     public async Task<IActionResult> PutDisable(int idCriminalCode, int userId)
     {

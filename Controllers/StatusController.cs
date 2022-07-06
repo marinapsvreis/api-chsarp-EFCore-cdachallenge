@@ -17,6 +17,10 @@ namespace API_DOTNET.Controllers
       _repository = repository;
     }
 
+    /// <summary>
+    /// Encontrando todos os Status
+    /// </summary>
+
     [HttpGet]
     public async Task<IActionResult> Get()
     {
@@ -24,12 +28,20 @@ namespace API_DOTNET.Controllers
       return statuss.Any() ? Ok(statuss) : NoContent();
     }
 
+    /// <summary>
+    /// Encontrando Status por Id
+    /// </summary>
+
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById(int id)
     {
       var status = await _repository.GetStatus(id);
       return status != null ? Ok(status) : NotFound("Status não encontrado");
     }
+
+    /// <summary>
+    /// Criando um Status
+    /// </summary>
 
     [HttpPost]
     public async Task<IActionResult> Post(StatusViewInput statusViewInput)
@@ -42,6 +54,10 @@ namespace API_DOTNET.Controllers
       _repository.AddStatus(status);
       return await _repository.SaveChangesAsync() ? Ok("Status adicionado com sucesso") : BadRequest("Erro ao salvar status");
     }
+
+    /// <summary>
+    /// Alterando um Status
+    /// </summary>
 
     [HttpPut("{id}")]
     public async Task<IActionResult> Put(int id, Status status)
@@ -56,6 +72,10 @@ namespace API_DOTNET.Controllers
       return await _repository.SaveChangesAsync() ? Ok("Status atualizado com sucesso") : BadRequest("Erro ao atualizar Status");
 
     }
+
+    /// <summary>
+    /// Deletando um Status
+    /// </summary>
 
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)

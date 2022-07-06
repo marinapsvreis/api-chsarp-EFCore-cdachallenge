@@ -19,6 +19,10 @@ namespace API_DOTNET.Controllers
       _repository = repository;
     }
 
+    /// <summary>
+    /// Encontrando todos os Criminal Codes
+    /// </summary>
+
     [HttpGet]
     public async Task<IActionResult> Get()
     {
@@ -45,6 +49,10 @@ namespace API_DOTNET.Controllers
       return criminalCodes.Any() ? Ok(listCriminalCodes) : NoContent();
     }
 
+    /// <summary>
+    /// Encontrando Criminal Codes com recurso de Paginação, Filtro e Order
+    /// </summary>
+
     [HttpGet("/paged/")]
     public async Task<ActionResult> GetPagedAsync([FromQuery] CriminalCodeFilterDb criminalCodeFilterDb)
     {
@@ -52,6 +60,10 @@ namespace API_DOTNET.Controllers
       var result = new PagedBaseResponseOutput<CriminalCodeViewOutput>(criminalCodePaged.TotalRegisters, criminalCodePaged.Data);
       return Ok(criminalCodePaged);
     }
+
+    /// <summary>
+    /// Encontrando um Criminal Code por Id
+    /// </summary>
 
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById(int id)
@@ -75,6 +87,10 @@ namespace API_DOTNET.Controllers
       return criminalCode != null ? Ok(criminalCodeViewOutput) : NotFound("CriminalCode não encontrado");
     }
 
+    /// <summary>
+    /// Criando um Criminal Code
+    /// </summary>
+
     [HttpPost]
     public async Task<IActionResult> Post(CriminalCodeViewInput criminalCodeViewInput, int userId)
     {
@@ -96,6 +112,10 @@ namespace API_DOTNET.Controllers
       return await _repository.SaveChangesAsync() ? Ok("CriminalCode adicionado com sucesso") : BadRequest("Erro ao salvar CriminalCode");
     }
 
+    /// <summary>
+    /// Alterando um Criminal Code
+    /// </summary>
+
     [HttpPut("{idCriminalCode}")]
     public async Task<IActionResult> Put(int idCriminalCode, CriminalCodeViewInput criminalCodeViewInput, int userId)
     {
@@ -113,6 +133,10 @@ namespace API_DOTNET.Controllers
 
       return await _repository.SaveChangesAsync() ? Ok("CriminalCode atualizado com sucesso") : BadRequest("Erro ao atualizar CriminalCode");
     }
+
+    /// <summary>
+    /// Deletando um Criminal Code por Id
+    /// </summary>
 
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
